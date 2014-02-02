@@ -2,12 +2,30 @@
 *.slo
 *.lo
 *.o
+*.obj
+*.lib
+*.pch
 
 # Compiled Dynamic libraries
 *.so
 *.dylib
+*.dll
 
 # Compiled Static libraries
 *.lai
 *.la
 *.a
+
+# Executable File
+*.exe
+
+#VisualStudio Make File
+*.sdf
+*.pdb
+*.ilk
+
+#Compiled Directory
+Debug/
+Release/
+12306Client_MFC/Debug/
+12306Client_MFC/Release/

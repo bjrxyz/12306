@@ -150,7 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\My12306Client_MFC.rc2" />
-    <None Include="编译指南.txt" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\12306Client_MFC.ico" />

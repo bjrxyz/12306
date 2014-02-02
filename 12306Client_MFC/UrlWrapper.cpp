@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 #include "UrlWrapper.h"
-
+#include <algorithm>
 
 static const char* FireFox = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:26.0) Gecko/20100101 Firefox/26.0";
 static const char* IE7 = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; InfoPath.2; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022; .NET4.0C; .NET4.0E)";
@@ -177,16 +177,19 @@ size_t CUrlWrapper::getResponseData(void* data, size_t len)
 {
 	size_t length = m_response.size();
 	if(!length)
-		return 0;
-	ASSERT_POINTER(data, byte);
-	if(0==memcpy_s(data, len, m_response.data(), length))
 	{
+		return 0;
+	}
+	ASSERT_POINTER(data, byte);
+	if(length<=len)
+	{
+		std::copy(m_response.begin(),m_response.end(),(byte*)data);
 		return length;
 	}
 	else
 	{
 		return 0;
-	}
+	}	
 }
 
 size_t CUrlWrapper::getResponseLength()

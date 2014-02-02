@@ -115,6 +115,7 @@
     <None Include="res\My12306Client_MFC.rc2">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="编译指南.txt" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\12306Client_MFCDoc.ico">

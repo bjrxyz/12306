@@ -21,6 +21,7 @@
 
 #VisualStudio Make File
 *.sdf
+*.opensdf
 *.pdb
 *.ilk
 

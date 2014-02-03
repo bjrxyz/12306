@@ -381,7 +381,7 @@ LRESULT CMainView::OnBnClickedBook(WPARAM wParam, LPARAM lParam)
 		delete[] response;
 		return 0;
 	}
-
+	delete[] response;
 	memset(url, 0, 512);
 	strcat_s(url, 512, "https://kyfw.12306.cn/otn/leftTicket/submitOrderRequest");
 	char* post_fields = new char[512];
@@ -422,6 +422,7 @@ LRESULT CMainView::OnBnClickedBook(WPARAM wParam, LPARAM lParam)
 			::wcstombs_s(&converted, post_fields+strlen(post_fields),128-strlen(post_fields), strCode, strCode.GetLength()*sizeof(TCHAR));*/
 			// 从这里开始就没写了。。。
 			res_len = m_pCurlObj->getResponseLength();
+			response = new char[res_len];
 			memset(response, 0, res_len);
 			m_pCurlObj->getResponseData(response, res_len);
 			begin = strstr(response, "globalRepeatSubmitToken");
